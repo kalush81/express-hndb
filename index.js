@@ -6,6 +6,7 @@ const homeRouter = require("./routes/home");
 const path = require('path');
 const hdb =  require('express-handlebars');
 
+const port = process.env.PORT || 3333;
 const app = express();
 
 app.engine(
@@ -27,4 +28,4 @@ app.use((req, res, next) => {
   res.render("pageNotfound")
 });
 
-app.listen(3333, console.log("server is listening on port 3333"));
+app.listen(port, console.log(`server is listening on port ${port} `));
