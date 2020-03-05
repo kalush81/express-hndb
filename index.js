@@ -18,13 +18,13 @@ app.set('view engine', 'handlebars')
 
 app.use(express.static(path.join(__dirname, "public")))
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use('/admin', adminData.router);
 app.use(usersRouter);
 app.use(homeRouter);
-app.use('/admin/', adminData.router);
 
 app.use((req, res, next) => {
   //res.status(404).sendFile(path.join(__dirname, "views", "pageNotfound.html"))
-  res.render('pageNotfound')
+  res.render("pageNotfound")
 });
 
 app.listen(3333, console.log("server is listening on port 3333"));

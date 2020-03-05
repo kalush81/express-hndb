@@ -8,6 +8,7 @@ router.get('/add-user', (req, res, next) => {
 })
 
 router.post('/add-user', (req, res, next) => {
+    console.log('you added user')
     users.push(req.body.user);
     res.redirect('/users');
 })
