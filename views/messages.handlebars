@@ -1,0 +1,10 @@
+<h1>for now you get to see all the messages that run on the server memory. We use Heroku service for that</h1>
+    <p>list of all messages</p>
+    <ul>
+        {{#each users}}
+            <li>{{this}}</li>
+        {{/each}}
+    </ul>
+    <a style="display: block" href="/admin/add-message">add message</a>
+    <hr>
+    <a style="display: block" href="/">go back home</a>

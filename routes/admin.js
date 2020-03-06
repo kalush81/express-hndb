@@ -3,14 +3,18 @@ const Router = require('express');
 const router =  new Router();
 const users = [];
 
-router.get('/add-user', (req, res, next) => {
+router.get('/add-message', (req, res, next) => {
     res.render('adminAddUser', {pageTitle: 'admin-add-user'})
 })
 
-router.post('/add-user', (req, res, next) => {
+router.post('/add-message', (req, res, next) => {
     console.log('you added user')
-    users.push(req.body.user);
-    res.redirect('/users');
+    if (req.body.message === '') {
+        return res.redirect('/messages');   
+    }
+    users.push(req.body.message);
+    res.redirect('/messages');
+
 })
 
 exports.router = router;

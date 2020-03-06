@@ -1,7 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const adminData = require("./routes/admin");
-const usersRouter = require("./routes/users");
+const messagesRouter = require("./routes/messages");
 const homeRouter = require("./routes/home");
 const path = require('path');
 const hdb =  require('express-handlebars');
@@ -20,7 +20,7 @@ app.set('view engine', 'handlebars')
 app.use(express.static(path.join(__dirname, "public")))
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/admin', adminData.router);
-app.use(usersRouter);
+app.use(messagesRouter);
 app.use(homeRouter);
 
 app.use((req, res, next) => {
