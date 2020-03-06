@@ -5,12 +5,16 @@
 <h2>Finally, each message will create its own unique URL link
     which you then send to the recipient.</h2>
 <h2>It is up to the recipient to delete the message, if not, the message will disappear within 30 minutes.</h2>
-    <div class="button-container">
-
+<form action="admin/add-message">
+type your nickname here and join the chat room: 
+    <input type="text" name="user"/>
+    <input type="submit"/>
+</form>
+{{!-- <div class="button-container">
     <a href="admin/add-message">
-            <button>Add message</button>
-        </a>
+        <button>Add message</button>
+    </a>
     <a href="messages">
-            <button>See all messages</button>
-        </a>
-    </div>
+        <button>See all messages</button>
+    </a>
+</div> --}}

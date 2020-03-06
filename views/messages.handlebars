@@ -1,9 +1,9 @@
 <h1>for now you get to see all the messages that run on the server memory. We use Heroku service for that</h1>
 <p>list of all messages</p>
-<div class="messages-container">
+<div id='ulId' class="messages-container">
     <ul>
         {{#each users}}
-        <li>{{this}}</li>
+        <p>{{this.user}}: {{this.message}}</p>
         {{/each}}
     </ul>
 </div>
@@ -16,4 +16,8 @@
     setInterval(() => {
         window.location = "https://whispering-sands-04233.herokuapp.com/messages" && 'http://localhost:3333/messages'
     }, 5000)
+    const scrolled = false;
+    
+    const element = document.getElementById("ulId");
+    element.scrollTop = element.scrollHeight
 </script>
