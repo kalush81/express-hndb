@@ -1,4 +1,7 @@
-* {
+*, html {
+    box-sizing: content-box;
+    margin: 0;
+    padding: 0;
     color: red
 }
 
@@ -8,4 +11,28 @@ form {
 
 h1 {
     color: blue;
+}
+body {
+    height: 100vh;
+}
+.container {
+    background-color: aqua;
+    height: 100%;
+    position: relative;
+}
+.container .button-container {
+    position: fixed;
+    bottom: 15px;
+}
+button {
+    width: 100px;
+    height: 24px;
+}
+.messages-container {
+    font-size: 36px;
+    width: 90%;
+    max-height: 70%;
+    min-height: 100px;
+    border: 2px solid red;
+    overflow: scroll;
 }

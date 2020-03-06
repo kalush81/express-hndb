@@ -1,15 +1,19 @@
 <h1>for now you get to see all the messages that run on the server memory. We use Heroku service for that</h1>
-    <p>list of all messages</p>
+<p>list of all messages</p>
+<div class="messages-container">
     <ul>
         {{#each users}}
-            <li>{{this}}</li>
+        <li>{{this}}</li>
         {{/each}}
     </ul>
-    <a style="display: block" href="/admin/add-message">add message</a>
-    <hr>
-    <a style="display: block" href="/">go back home</a>
-    <script>
-        setInterval(()=> {
-    window.location = "https://whispering-sands-04233.herokuapp.com/messages"|| 'http://localhost:3333/messages'
-}, 5000)
-    </script>
+</div>
+<div class="button-container">
+    <a href="/admin/add-message"><button>add message</button></a>
+    <a href="/"><button>go back home</button></a>
+</div>
+
+<script>
+    setInterval(() => {
+        window.location = "https://whispering-sands-04233.herokuapp.com/messages" && 'http://localhost:3333/messages'
+    }, 5000)
+</script>
