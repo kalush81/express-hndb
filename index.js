@@ -1,5 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const addUser = require("./routes/user");
 const adminData = require("./routes/admin");
 const messagesRouter = require("./routes/messages");
 const homeRouter = require("./routes/home");
@@ -19,12 +20,12 @@ app.set('view engine', 'handlebars')
 
 app.use(express.static(path.join(__dirname, "public")))
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use('/admin', addUser.router);
 app.use('/admin', adminData.router);
 app.use(messagesRouter);
 app.use(homeRouter);
 
 app.use((req, res, next) => {
-  //res.status(404).sendFile(path.join(__dirname, "views", "pageNotfound.html"))
   res.render("pageNotfound")
 });
 

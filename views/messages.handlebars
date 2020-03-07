@@ -2,22 +2,27 @@
 <p>list of all messages</p>
 <div id='ulId' class="messages-container">
     <ul>
-        {{#each users}}
-        <p>{{this.user}}: {{this.message}}</p>
+        {{#each messages}}
+        <p>{{user}}: {{message}}</p>
         {{/each}}
     </ul>
 </div>
 <div class="button-container">
-    <a href="/admin/add-message"><button>add message</button></a>
+    <a class='test' href="/admin/add-message"><button onclick="seturl()">add message</button></a>
     <a href="/"><button>go back home</button></a>
 </div>
 
 <script>
+    function setUrl() {
+
+        const href = document.querySelector('.test');
+        href.href += '/'+ window.location.search;
+    }
+    setUrl()
     setInterval(() => {
-        window.location = "https://whispering-sands-04233.herokuapp.com/messages";
+        location.reload();
     }, 5000)
     const scrolled = false;
-    
     const element = document.getElementById("ulId");
     element.scrollTop = element.scrollHeight
 </script>

@@ -1,23 +1,20 @@
 const Router = require('express');
 const router =  new Router();
-const users = [];
+const messages = [];
+let name = 'noname'
 
-let uniqueUser;
 router.get('/add-message', (req, res, next) => {
-    if (!req._parsedOriginalUrl.search) {
-        return res.render('adminAddUser', {pageTitle: 'admin-add-user', user: uniqueUser})
-    }
-    uniqueUser = req._parsedOriginalUrl.search.split('=')[1];
-    res.render('adminAddUser', {pageTitle: 'admin-add-user', user: uniqueUser})
+    console.log('user name retracted and received', req.query.name)
+    name = req.query.name;
+    if (!name) return res.redirect('/');
+    res.render('adminAddMessage', {pageTitle: 'admin-add-user', user: name})
 })
 
 router.post('/add-message', (req, res, next) => {
-    if (req.body.message === '') {
-        return res.redirect('/messages');   
-    }
-    users.push({message: req.body.message, user: uniqueUser});
-    res.redirect('/messages');
+    console.log(name)
+    messages.push({ message: req.body.message, user: name });
+    res.redirect('/messages/?name=' + name);
 })
 
 exports.router = router;
-exports.users = users
+exports.messages = messages;
