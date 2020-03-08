@@ -1,11 +1,12 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const addUser = require("./routes/user");
-const adminData = require("./routes/admin");
+const user = require("./routes/user");
+const message = require("./routes/addMessage");
 const messagesRouter = require("./routes/messages");
 const homeRouter = require("./routes/home");
 const path = require('path');
 const hdb =  require('express-handlebars');
+const session = require('express-session');
 
 const port = process.env.PORT || 3333;
 const app = express();
@@ -17,11 +18,15 @@ app.engine(
 
 app.set('view engine', 'handlebars')
 //app.set('views', 'views');
-
+app.use(session({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: true
+}))
 app.use(express.static(path.join(__dirname, "public")))
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use('/admin', addUser.router);
-app.use('/admin', adminData.router);
+app.use('/admin', user.router);
+app.use('/admin', message.router);
 app.use(messagesRouter);
 app.use(homeRouter);
 
