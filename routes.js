@@ -41,3 +41,25 @@
 //     res.end();
 //   }
 // };
+const fs =  require('fs');
+
+if (fs.existsSync('routes/addMessage2.js')) {
+    console.log('addMassage exists')
+} 
+else {
+    console.log('not existing')
+}
+//fs.writeFileSync('./nowyFolder/nowyplik.txt', 'hello world');
+// fs.writeFile("/tmp/test", "Hey there!", function(err) {
+//     if(err) {
+//         return console.log(err);
+//     }
+//     console.log("The file was saved!");
+// }); 
+fs.mkdir("test", () => {
+    fs.mkdir("./test/new_Folder", () => {
+        fs.writeFileSync('./test/new_Folder/asynchronous.txt', 'asynchronous write!')
+    }) 
+})
+console.log(__dirname, __filename)
+

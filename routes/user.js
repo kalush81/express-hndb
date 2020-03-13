@@ -1,5 +1,6 @@
 const Router = require("express");
 const router = new Router();
+<<<<<<< HEAD
 const url = require('url');
 
 router.post("/add-user", (req, res, next) => {
@@ -12,6 +13,11 @@ router.post("/add-user", (req, res, next) => {
     pathname:"add-message"
   }));
 });
+=======
+const addUser = require('../controlers/addUser')
 
-exports.router = router;
+router.post("/add-user", addUser);
+>>>>>>> testing_branch
+
+exports.addUser = router;
 
